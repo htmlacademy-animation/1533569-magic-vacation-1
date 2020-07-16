@@ -32,9 +32,10 @@
 .form__field {
   flex: none;
   margin-right: 3rem;
-  padding: 0 5.6rem;
+  padding: 0;
   height: 6rem;
-  width: calc(100% - 21rem);
+  width: 0;
+  margin-left: calc(100% - 21rem);
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -43,6 +44,13 @@
   border: 0;
   border-radius: 3rem;
   outline: none;
+  transition: $trans;
+  transition-delay: 0.5s;
+
+  &::placeholder {
+    opacity: 0;
+    color: $c-dark;
+  }
 
   &:focus {
     border: 1px solid $c-purple;
@@ -75,6 +83,18 @@
     width: calc(100% - 5rem);
     height: 4rem;
     font-size: 1.6rem;
+  }
+}
+
+.screen--game.active .form__field {
+  width: calc(100% - 21rem);
+  margin-left: 0;
+  padding: 0 5.6rem;
+
+  &::placeholder {
+    transition: $trans;
+    transition-delay: 0.8s;
+    opacity: .5;
   }
 }
 
