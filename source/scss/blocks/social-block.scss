@@ -35,6 +35,9 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: all .3s cubic-bezier(.72,1.51,.75,1.47);
+    transition-delay: .5s;
+    transform: translate(-50%, -50%) scale(0);
   }
 
   svg {
@@ -78,6 +81,12 @@
       background-color: $c-purple;
       border-color: $c-purple;
     }
+  }
+}
+
+body.loaded {
+  & .social-block__toggler::before {
+    transform: translate(-50%, -50%) scale(1);
   }
 }
 

@@ -7,7 +7,7 @@
   overflow: hidden;
 
   &--hidden {
-    display: none;
+    visibility: hidden;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -46,6 +46,9 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transition: all .5s cubic-bezier(.42,1.34,.91,.82);
+  transition-delay: .5s;
+  transform: translateY(60px);
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -67,6 +70,12 @@
       width: 100%;
       height: 16rem;
     }
+  }
+}
+
+body.loaded {
+  & .screen__footer {
+    transform: translateY(0);
   }
 }
 
