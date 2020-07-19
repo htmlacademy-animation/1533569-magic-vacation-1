@@ -17,6 +17,22 @@
   @media (max-width: $tablet - 1) and (orientation: landscape) {
     height: 100vh;
   }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+    background-color: $c-dark;
+    z-index: 1;
+  }
+  
+
+  &--story::after {
+    background-color: transparent;
+  }
 }
 
 .screen__wrapper {
