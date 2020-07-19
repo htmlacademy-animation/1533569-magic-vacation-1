@@ -32,10 +32,9 @@
 .form__field {
   flex: none;
   margin-right: 3rem;
-  padding: 0;
+  padding: 0 5.6rem;
   height: 6rem;
-  width: 0;
-  margin-left: calc(100% - 21rem);
+  width: calc(100% - 21rem);
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -46,6 +45,8 @@
   outline: none;
   transition: $trans;
   transition-delay: 0.5s;
+  transform: translateX(200%);
+  opacity: 0;
 
   &::placeholder {
     opacity: 0;
@@ -87,9 +88,8 @@
 }
 
 .screen--game.active .form__field {
-  width: calc(100% - 21rem);
-  margin-left: 0;
-  padding: 0 5.6rem;
+  transform: translateX(0);
+  opacity: 1;
 
   &::placeholder {
     transition: $trans;
