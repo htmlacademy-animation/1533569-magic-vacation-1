@@ -1327,7 +1327,14 @@ img {
   color: #5f458c;
   border: 0;
   border-radius: 3rem;
-  outline: none; }
+  outline: none;
+  transition: all 0.3s;
+  transition-delay: 0.5s;
+  transform: translateX(200%);
+  opacity: 0; }
+  .form__field::placeholder {
+    opacity: 0;
+    color: #5f458c; }
   .form__field:focus {
     border: 1px solid #a67ee5; }
   @media (min-width: 2000px) {
@@ -1355,6 +1362,14 @@ img {
       width: calc(100% - 5rem);
       height: 4rem;
       font-size: 1.6rem; } }
+
+.screen--game.active .form__field {
+  transform: translateX(0);
+  opacity: 1; }
+  .screen--game.active .form__field::placeholder {
+    transition: all 0.3s;
+    transition-delay: 0.8s;
+    opacity: .5; }
 
 .form__button {
   flex-grow: 1; }
@@ -1591,7 +1606,11 @@ img {
   max-width: 50%;
   text-transform: uppercase;
   font-size: 2.4rem;
-  line-height: 1.27; }
+  line-height: 1.27;
+  transition: all 0.3s;
+  transition-delay: 0.30s;
+  opacity: 0;
+  transform: translateY(50px); }
   @media (min-width: 2000px) {
     .intro__message {
       width: 509px;
@@ -1622,6 +1641,10 @@ img {
     .intro__message svg {
       width: 1.1rem;
       height: 1.1rem; } }
+
+.screen--intro.active .intro__message {
+  opacity: 1;
+  transform: translateY(0); }
 
 .intro__label {
   margin: 0 0 1.6rem;
@@ -1898,7 +1921,8 @@ body.loaded .page-header__nav {
       outline: none; }
       .page-header__menu a:hover::after, .page-header__menu a:focus::after {
         opacity: 1;
-        background-color: #a67ee5; }
+        background-color: #a67ee5;
+        width: 100%; }
 
 body.loaded .page-header__menu a.active::after {
   width: 100%; }
@@ -2944,6 +2968,17 @@ body.loaded .screen__footer {
       .slider__item:nth-child(2) .slider__item-text {
         margin-top: auto; } }
 
+.screen--story.active .slider__item.swiper-slide-active .slider__item-text,
+.screen--story.active .slider__item.swiper-slide-next .slider__item-text {
+  opacity: 1;
+  transform: translateX(0); }
+
+.screen--story.active .slider__item.swiper-slide-active .slider__item-text {
+  transition-delay: .5s; }
+
+.screen--story.active .slider__item.swiper-slide-next .slider__item-text {
+  transition-delay: .7s; }
+
 .slider__item-title {
   margin: 0 0 0 -5.5rem;
   text-transform: uppercase;
@@ -2970,7 +3005,10 @@ body.loaded .screen__footer {
   margin-bottom: 0;
   max-width: 34rem;
   font-size: 1.8rem;
-  line-height: 2rem; }
+  line-height: 2rem;
+  transform: translateX(30px);
+  opacity: 0;
+  transition: all 0.3s; }
   @media (min-width: 2000px) {
     .slider__item-text {
       margin-top: 36px;
@@ -3145,7 +3183,8 @@ body.loaded .screen__footer {
   width: 4rem;
   height: 4rem;
   color: #5f458c;
-  border-radius: 50%; }
+  border-radius: 50%;
+  transition: all 0.3s; }
   .social-block__toggler:focus {
     outline: none; }
   @media (max-width: 1024px) and (orientation: portrait) {
@@ -3212,7 +3251,8 @@ body.loaded .social-block__toggler::before {
   right: 0;
   margin-top: 1.5rem;
   opacity: 0;
-  pointer-events: none; }
+  pointer-events: none;
+  transition: all 0.3s; }
   @media (min-width: 2000px) {
     .social-block__list {
       margin-top: 15px; } }
@@ -3253,6 +3293,13 @@ body.loaded .social-block__toggler::before {
   .social-block--active .social-block__list {
     opacity: 1;
     pointer-events: auto; }
+    .social-block--active .social-block__list .social-block__link {
+      margin-top: 0;
+      opacity: 1; }
+      .social-block--active .social-block__list .social-block__link--insta {
+        transition-delay: .15s; }
+      .social-block--active .social-block__list .social-block__link--vk {
+        transition-delay: .30s; }
   .social-block__list li {
     flex: none;
     margin-bottom: 0.5rem; }
@@ -3273,7 +3320,10 @@ body.loaded .social-block__toggler::before {
   height: 4rem;
   color: #ffffff;
   border: 2px solid transparent;
-  border-radius: 50%; }
+  border-radius: 50%;
+  transition: all .30s ease-in;
+  margin-top: 1.5rem;
+  opacity: 0; }
   @media (min-width: 2000px) {
     .social-block__link {
       width: 40px;
