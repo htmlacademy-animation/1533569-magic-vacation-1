@@ -1317,10 +1317,9 @@ img {
 .form__field {
   flex: none;
   margin-right: 3rem;
-  padding: 0;
+  padding: 0 5.6rem;
   height: 6rem;
-  width: 0;
-  margin-left: calc(100% - 21rem);
+  width: calc(100% - 21rem);
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
@@ -1330,7 +1329,9 @@ img {
   border-radius: 3rem;
   outline: none;
   transition: all 0.3s;
-  transition-delay: 0.5s; }
+  transition-delay: 0.5s;
+  transform: translateX(200%);
+  opacity: 0; }
   .form__field::placeholder {
     opacity: 0;
     color: #5f458c; }
@@ -1363,9 +1364,8 @@ img {
       font-size: 1.6rem; } }
 
 .screen--game.active .form__field {
-  width: calc(100% - 21rem);
-  margin-left: 0;
-  padding: 0 5.6rem; }
+  transform: translateX(0);
+  opacity: 1; }
   .screen--game.active .form__field::placeholder {
     transition: all 0.3s;
     transition-delay: 0.8s;
