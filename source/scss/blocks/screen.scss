@@ -7,7 +7,7 @@
   overflow: hidden;
 
   &--hidden {
-    display: none;
+    visibility: hidden;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -18,21 +18,26 @@
     height: 100vh;
   }
 
-  &::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 0;
-    width: 100%;
-    background-color: $c-dark;
-    z-index: 1;
+  &--prizes {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: $c-dark;
+      height: 0;
+      z-index: 1;
+      transition: all .30s;
+    }
+    &.active {
+      &::after {
+        height: 100%;
+      }
+    }
   }
-  
 
-  &--story::after {
-    background-color: transparent;
-  }
 }
 
 .screen__wrapper {
