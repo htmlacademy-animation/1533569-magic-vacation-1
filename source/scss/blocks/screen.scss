@@ -7,17 +7,7 @@
   overflow: hidden;
 
   &--hidden {
-    position: absolute;
-    margin: -1px;
-    padding: 0;
-    width: 1px;
-    height: 1px;
-    white-space: nowrap;
-    border: 0;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-    // display: none; // убрали данный класс, так как в первом модуле мешает реализовывать задачи
+    visibility: hidden;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -56,6 +46,9 @@
   color: $c-dark;
   background-color: $c-light;
   z-index: 1;
+  transition: all .5s cubic-bezier(.42,1.34,.91,.82);
+  transition-delay: .5s;
+  transform: translateY(60px);
 
   @media (max-width: $tablet) and (orientation: portrait) {
     width: 3.5rem;
@@ -77,6 +70,12 @@
       width: 100%;
       height: 16rem;
     }
+  }
+}
+
+body.loaded {
+  & .screen__footer {
+    transform: translateY(0);
   }
 }
 
