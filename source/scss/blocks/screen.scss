@@ -1,13 +1,24 @@
 .screen {
-  position: relative;
+  position: absolute;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   z-index: 1;
   overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+
+  &--intro {
+    &.active {
+      z-index: 2;
+    }
+  }
 
   &--hidden {
-    visibility: hidden;
+    // visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -20,7 +31,9 @@
 
   &--prizes {
     position: relative;
-    &::after {
+    z-index: 3;
+    transition-delay: 1s;
+    &::before {
       content: '';
       position: absolute;
       left: 0;
@@ -29,13 +42,53 @@
       background-color: $c-dark;
       height: 0;
       z-index: 1;
-      transition: all .30s;
+      transition: all 1s;
+    }
+    .screen__footer {
+      bottom: -100px;
+    }
+    .prizes__title, .prizes__lead, .prizes__list {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .screen__footer, .prizes__title, .prizes__list {
+      transition: all .25s;
+    }
+    .prizes__lead {
+      transition: all .5s;
     }
     &.active {
-      &::after {
+      &::before {
         height: 100%;
       }
+      .screen__footer {
+        bottom: 0;
+        transition-delay: .4s;
+      }
+      .prizes__title, .prizes__lead, .prizes__list {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .prizes__title {
+        transition-delay: .6s;
+      }
+      .prizes__lead {
+        transition-delay: .8s;
+      }
+      .prizes__list {
+        transition-delay: .9s;
+      }
     }
+  }
+
+  &--story,
+  &--rules {
+    transition-delay: 2s;
+  }
+
+  &.active {
+    opacity: 1;
+    transition: all .30s;
   }
 
 }
@@ -316,6 +369,12 @@
   background-size: cover;
   background-position: center;
 
+  &--holder {
+    position: relative;
+    z-index: 2;
+    top: 100vh;
+  }
+
   @media (orientation: portrait) {
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
@@ -323,7 +382,7 @@
 }
 
 .screen--prizes {
-  background-color: $c-dark;
+  // background-color: $c-dark;
 }
 
 .screen--game {
