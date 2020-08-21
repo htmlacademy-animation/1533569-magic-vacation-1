@@ -17,6 +17,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: $trans;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +36,9 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: all .3s cubic-bezier(.72,1.51,.75,1.47);
+    transition-delay: .5s;
+    transform: translate(-50%, -50%) scale(0);
   }
 
   svg {
@@ -81,6 +85,12 @@
   }
 }
 
+body.loaded {
+  & .social-block__toggler::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
 .social-block__list {
   @include list-reset;
   position: absolute;
@@ -89,6 +99,7 @@
   margin-top: 1.5rem;
   opacity: 0;
   pointer-events: none;
+  transition: $trans;
 
   @media (min-width: $stop-scaling) {
     margin-top: 15px;
@@ -140,6 +151,23 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    .social-block__link {
+      margin-top: 0;
+      opacity: 1;
+      
+      &--fb {
+        // transition-delay: .10s;
+      }
+
+      &--insta {
+        transition-delay: .15s;
+      }
+
+      &--vk {
+        transition-delay: .30s;
+      }
+    }
   }
 
   li {
@@ -168,6 +196,9 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: all .30s ease-in;
+  margin-top: 1.5rem;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
